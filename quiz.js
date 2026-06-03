@@ -1,5 +1,5 @@
 const Q_TIMER_SECONDS = 15;
-const DND_TIMER_SECONDS = 120;
+const DND_TIMER_SECONDS = 60;
 
 const questions = [
   {

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computer Software Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Computer Software <span>— Interactive Quiz</span></h1>
+      <div class="header-right">
+        <div class="timer-badge" id="headerTimer" style="display: none">
+          <span class="timer-icon">⏱</span>
+          <span id="headerTimerText">—</span>
+        </div>
+        <div class="score-badge" id="scoreBadge">Score: 0 / 0</div>
+      </div>
+    </header>
+
+    <main>
+      <div id="quizSection">
+        <div class="section-label">Part 1 — Multiple Choice</div>
+        <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+        <div id="questionWrap"></div>
+      </div>
+
+      <div class="dnd-section" id="dndSection" style="display: none">
+        <div class="section-label">Part 2 — Drag and Drop</div>
+
+        <div class="dnd-header">
+          <div class="dnd-header-left">
+            <div class="dnd-title">Sort the Software!</div>
+            <div class="dnd-sub">Drag each item into the correct category below.</div>
+          </div>
+          <div class="dnd-timer-wrap">
+            <div class="dnd-timer-label">Time Left</div>
+            <div class="dnd-timer-ring" id="dndTimerRing">
+              <svg width="80" height="80" viewBox="0 0 80 80">
+                <circle class="bg" cx="40" cy="40" r="34" />
+                <circle
+                  class="fg"
+                  id="dndTimerCircle"
+                  cx="40"
+                  cy="40"
+                  r="34"
+                  stroke-dasharray="213.6"
+                  stroke-dashoffset="0"
+                />
+              </svg>
+              <div class="dnd-timer-text" id="dndTimerText">2:00</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dnd-items" id="chipPool"></div>
+
+        <div class="drop-zones">
+          <div
+            class="drop-zone"
+            id="zone-system"
+            ondragover="onOver(event, 'system')"
+            ondrop="onDrop(event, 'system')"
+            ondragleave="onLeave('system')"
+          >
+            <h3 class="sys">⚙ System Software</h3>
+            <div class="dropped-items" id="dropped-system"></div>
+          </div>
+          <div
+            class="drop-zone"
+            id="zone-app"
+            ondragover="onOver(event, 'app')"
+            ondrop="onDrop(event, 'app')"
+            ondragleave="onLeave('app')"
+          >
+            <h3 class="app">◻ Application Software</h3>
+            <div class="dropped-items" id="dropped-app"></div>
+          </div>
+        </div>
+
+        <button class="check-dnd" onclick="checkDnD()">Check My Answers</button>
+        <div class="dnd-result" id="dndResult"></div>
+      </div>
+
+      <div id="results">
+        <div class="section-label" style="text-align: center">Your Result</div>
+        <div class="result-score" id="resultScore"></div>
+        <div class="result-msg" id="resultMsg"></div>
+        <button class="retry-btn" onclick="restartQuiz()">Try Again</button>
+      </div>
+    </main>
+
+    <script src="quiz.js"></script>
+  </body>
+</html>
